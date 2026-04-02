@@ -39,6 +39,24 @@
       background: #C9A96E;
     }
   </style>
+    <script type="text/javascript" charset="utf-8">
+    (function (g, e, n, es, ys) {
+      g['_genesysJs'] = e;
+      g[e] = g[e] || function () {
+        (g[e].q = g[e].q || []).push(arguments);
+      };
+      g[e].t = 1 * new Date();
+      g[e].c = es;
+      ys = document.createElement('script');
+      ys.async = 1;
+      ys.src = n;
+      ys.charset = 'utf-8';
+      document.head.appendChild(ys);
+    })(window, 'Genesys', 'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js', {
+      environment: 'prod',
+      deploymentId: '6d8807f0-7eec-4a23-bac4-9d1bb29adc78'
+    });
+  </script>
 </head>
 <body class="bg-white text-slate-800 antialiased">
   <header class="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-brand-navy/95 to-brand-navy/70 text-white backdrop-blur">
@@ -339,6 +357,91 @@
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+    <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+
+  <script>
+    let availabilityClicked = false;
+    let abandonmentTimer = null;
+    let exitIntentSent = false;
+    let journeyHandlerBound = false;
+
+    Genesys("subscribe", "Journey.ready", function () {
+      console.log("Journey plugin listo");
+
+      const availabilityBtn = document.getElementById("availabilityBtn");
+
+      if (!availabilityBtn) {
+        console.warn("No se encontró #availabilityBtn");
+        return;
+      }
+
+      if (journeyHandlerBound) {
+        return;
+      }
+      journeyHandlerBound = true;
+
+      availabilityBtn.addEventListener("click", function () {
+        availabilityClicked = true;
+        exitIntentSent = false;
+
+        Genesys("command", "Journey.record", {
+          eventName: "availability_clicked",
+          customAttributes: {
+            page: window.location.href,
+            section: "booking-widget",
+            hotel: "Sandos Demo"
+          }
+        });
+
+        console.log("Evento enviado: availability_clicked");
+
+        if (abandonmentTimer) {
+          clearTimeout(abandonmentTimer);
+        }
+
+        abandonmentTimer = setTimeout(function () {
+          if (availabilityClicked) {
+            Genesys("command", "Journey.record", {
+              eventName: "availability_abandoned",
+              customAttributes: {
+                page: window.location.href,
+                waitSeconds: "15",
+                hotel: "Sandos Demo",
+                reason: "no_next_step"
+              }
+            });
+
+            console.log("Evento enviado: availability_abandoned");
+          }
+        }, 15000);
+      });
+    });
+
+    document.addEventListener("mouseout", function (e) {
+      if (e.clientY <= 0 && availabilityClicked && !exitIntentSent) {
+        exitIntentSent = true;
+
+        Genesys("command", "Journey.record", {
+          eventName: "exit_intent_after_availability",
+          customAttributes: {
+            page: window.location.href,
+            hotel: "Sandos Demo"
+          }
+        });
+
+        console.log("Evento enviado: exit_intent_after_availability");
+      }
     });
   </script>
 </body>
