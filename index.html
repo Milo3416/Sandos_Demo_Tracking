@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Demo estilo Sandos</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,6 +26,7 @@
       }
     }
   </script>
+
   <style>
     html { scroll-behavior: smooth; }
     .hero-overlay {
@@ -39,25 +41,28 @@
       background: #C9A96E;
     }
   </style>
-    <script type="text/javascript" charset="utf-8">
+
+  <!-- Genesys Messenger bootstrap -->
+  <script type="text/javascript" charset="utf-8">
     (function (g, e, n, es, ys) {
-      g['_genesysJs'] = e;
+      g["_genesysJs"] = e;
       g[e] = g[e] || function () {
         (g[e].q = g[e].q || []).push(arguments);
       };
       g[e].t = 1 * new Date();
       g[e].c = es;
-      ys = document.createElement('script');
+      ys = document.createElement("script");
       ys.async = 1;
       ys.src = n;
-      ys.charset = 'utf-8';
+      ys.charset = "utf-8";
       document.head.appendChild(ys);
-    })(window, 'Genesys', 'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js', {
-      environment: 'prod',
-      deploymentId: '6d8807f0-7eec-4a23-bac4-9d1bb29adc78'
+    })(window, "Genesys", "https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js", {
+      environment: "prod",
+      deploymentId: "6d8807f0-7eec-4a23-bac4-9d1bb29adc78"
     });
   </script>
 </head>
+
 <body class="bg-white text-slate-800 antialiased">
   <header class="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-brand-navy/95 to-brand-navy/70 text-white backdrop-blur">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
@@ -138,7 +143,9 @@
               <option>1 adulto</option>
             </select>
           </div>
-          <button class="rounded-2xl bg-brand-navy px-5 py-3 font-semibold text-white transition hover:bg-brand-blue">Buscar disponibilidad</button>
+          <button class="rounded-2xl bg-brand-navy px-5 py-3 font-semibold text-white transition hover:bg-brand-blue">
+            Buscar disponibilidad
+          </button>
         </div>
       </div>
     </section>
@@ -179,7 +186,7 @@
                 <span class="text-sm font-semibold text-brand-blue">Eco resort</span>
               </div>
               <h3 class="text-2xl font-semibold text-brand-navy">Sandos Caracol</h3>
-              <p class="mt-3 text-sm leading-6 text-slate-600">Sandos Caracol Nature Resort'&'amp; Water Park es un hotel todo incluido en Playa del Carmen. Este resort familiar todo para las vacaciones de playa perfectas en México. Sumérgete en antiguas leyendas mayas y las aguas cristalinas de cenotes naturales, o también podrás...</p>
+              <p class="mt-3 text-sm leading-6 text-slate-600">Sandos Caracol Nature Resort &amp; Water Park es un hotel todo incluido en Playa del Carmen. Este resort familiar todo para las vacaciones de playa perfectas en México.</p>
               <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-500">
                 <span class="rounded-full bg-slate-100 px-3 py-1">Naturaleza</span>
                 <span class="rounded-full bg-slate-100 px-3 py-1">Aventura</span>
@@ -196,7 +203,7 @@
                 <span class="text-sm font-semibold text-brand-blue">Luxury</span>
               </div>
               <h3 class="text-2xl font-semibold text-brand-navy">Sandos Cancún</h3>
-              <p class="mt-3 text-sm leading-6 text-slate-600">Sandos Cancún es un resort todo incluido en Cancún, México. Disfruta del lujoso spa, elegantes bares, restaurantes gourment, playas de arena blanca, piscinas panorámicas, balcones privados, servicio a la habitación, gimnasio, actividades en Sandos, y mucho más. Existen...</p>
+              <p class="mt-3 text-sm leading-6 text-slate-600">Sandos Cancún es un resort todo incluido en Cancún, México. Disfruta del lujoso spa, elegantes bares, restaurantes gourmet, playas de arena blanca y mucho más.</p>
               <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-500">
                 <span class="rounded-full bg-slate-100 px-3 py-1">Premium</span>
                 <span class="rounded-full bg-slate-100 px-3 py-1">Gastronomía</span>
@@ -213,7 +220,7 @@
                 <span class="text-sm font-semibold text-brand-blue">Adults & family</span>
               </div>
               <h3 class="text-2xl font-semibold text-brand-navy">Sandos Finisterra</h3>
-              <p class="mt-3 text-sm leading-6 text-slate-600">Las mejores vistas en Cabo San Lucas, México son tuyas con una estancia todo incluido en Sandos Finisterra. Nuestras vistas son mejores que cualquier otro hotel todo incluido en Cabo San Lucas. Elige entre habitaciones hacia al Mar Pacífico o a la Marina, o quédate en una...</p>
+              <p class="mt-3 text-sm leading-6 text-slate-600">Las mejores vistas en Cabo San Lucas, México son tuyas con una estancia todo incluido en Sandos Finisterra.</p>
               <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-500">
                 <span class="rounded-full bg-slate-100 px-3 py-1">Vista marina</span>
                 <span class="rounded-full bg-slate-100 px-3 py-1">Sunsets</span>
@@ -353,95 +360,54 @@
   </footer>
 
   <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
-    <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
 
     if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
       });
     }
   </script>
 
   <script>
-    let availabilityClicked = false;
-    let abandonmentTimer = null;
-    let exitIntentSent = false;
-    let journeyHandlerBound = false;
+    let hotelesEventSent = false;
 
     Genesys("subscribe", "Journey.ready", function () {
       console.log("Journey plugin listo");
 
-      const availabilityBtn = document.getElementById("availabilityBtn");
+      const hotelesSection = document.getElementById("hoteles");
 
-      if (!availabilityBtn) {
-        console.warn("No se encontró #availabilityBtn");
+      if (!hotelesSection) {
+        console.warn("No se encontró la sección #hoteles");
         return;
       }
 
-      if (journeyHandlerBound) {
-        return;
-      }
-      journeyHandlerBound = true;
+      const observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && !hotelesEventSent) {
+              hotelesEventSent = true;
 
-      availabilityBtn.addEventListener("click", function () {
-        availabilityClicked = true;
-        exitIntentSent = false;
+              Genesys("command", "Journey.record", {
+                eventName: "hoteles_section_viewed",
+                customAttributes: {
+                  page: window.location.href,
+                  section: "hoteles",
+                  hotel: "Sandos Demo Tracking"
+                }
+              });
 
-        Genesys("command", "Journey.record", {
-          eventName: "availability_clicked",
-          customAttributes: {
-            page: window.location.href,
-            section: "booking-widget",
-            hotel: "Sandos Demo"
-          }
-        });
-
-        console.log("Evento enviado: availability_clicked");
-
-        if (abandonmentTimer) {
-          clearTimeout(abandonmentTimer);
+              console.log("Evento enviado: hoteles_section_viewed");
+            }
+          });
+        },
+        {
+          threshold: 0.4
         }
+      );
 
-        abandonmentTimer = setTimeout(function () {
-          if (availabilityClicked) {
-            Genesys("command", "Journey.record", {
-              eventName: "availability_abandoned",
-              customAttributes: {
-                page: window.location.href,
-                waitSeconds: "15",
-                hotel: "Sandos Demo",
-                reason: "no_next_step"
-              }
-            });
-
-            console.log("Evento enviado: availability_abandoned");
-          }
-        }, 15000);
-      });
-    });
-
-    document.addEventListener("mouseout", function (e) {
-      if (e.clientY <= 0 && availabilityClicked && !exitIntentSent) {
-        exitIntentSent = true;
-
-        Genesys("command", "Journey.record", {
-          eventName: "exit_intent_after_availability",
-          customAttributes: {
-            page: window.location.href,
-            hotel: "Sandos Demo"
-          }
-        });
-
-        console.log("Evento enviado: exit_intent_after_availability");
-      }
+      observer.observe(hotelesSection);
     });
   </script>
 </body>
